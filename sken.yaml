@@ -8,7 +8,7 @@ scanner: sast,dast,sca            # optional param, default is ALL
 language: python,javascript       # optional param, default is Auto-Detect
 
 variables:
-  DAST_URL: https://your.url.com  # optional param
+  DAST_URL:   # optional param
 
 # optional Param section end
 
