@@ -1,4 +1,10 @@
 # Maven
+- task: SnykSecurityScan@0
+  inputs:
+    serviceConnectionEndpoint: 'Snyk'
+    testType: 'app'
+    monitorOnBuild: true
+    failOnIssues: true
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -21,9 +27,5 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: SnykSecurityScan@0
-  inputs:
-    testType: 'app'
-    monitorOnBuild: true
-    failOnIssues: true
+
   
