@@ -22,3 +22,18 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+name: Snyk example
+on: push
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: snyk/actions/setup@master
+    - uses: actions/setup-go@v1
+      with:
+        go-version: "1.13"
+    - name: Snyk monitor
+      run: snyk test
+      env:
+        SNYK_TOKEN: ${{ 039f5913-b4db-4189-a62f-3a4cd60bf1c5 }}
