@@ -1,8 +1,7 @@
-version: 2.1
- orbs:
+version: '2.1'
+orbs:
   skencli: skenai/skencli@1.0.3
 workflows:
- main:
-  jobs: 
-  - skencli/scan
-
+  main:
+    jobs:
+      - skencli/scan
