@@ -1,5 +1,4 @@
 version: 2.1
-orbs:
  orbs:
   skencli: skenai/skencli@1.0.3
 workflows:
