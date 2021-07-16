@@ -1,39 +1,11 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: Java CI with Maven
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-name: Snyk example
+name: Example workflow using Snyk
 on: push
 jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: snyk/actions/setup@master
-    - uses: actions/setup-go@v1
-      with:
-        go-version: "1.13"
-    - name: Snyk monitor
-      run: snyk test
-      env:
-        SNYK_TOKEN: ${{ 039f5913-b4db-4189-a62f-3a4cd60bf1c5 }}
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: 620dafaf-7dbb-4ead-8e74-24f2219f0286
